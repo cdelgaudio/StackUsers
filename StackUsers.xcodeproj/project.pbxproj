@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DB1D3F2F23F42C2500BC725B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F2E23F42C2500BC725B /* AppDelegate.swift */; };
 		DB1D3F3123F42C2500BC725B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F3023F42C2500BC725B /* SceneDelegate.swift */; };
-		DB1D3F3323F42C2500BC725B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F3223F42C2500BC725B /* ViewController.swift */; };
+		DB1D3F3323F42C2500BC725B /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F3223F42C2500BC725B /* UserListViewController.swift */; };
 		DB1D3F3823F42C2600BC725B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB1D3F3723F42C2600BC725B /* Assets.xcassets */; };
 		DB1D3F3B23F42C2600BC725B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1D3F3923F42C2600BC725B /* LaunchScreen.storyboard */; };
 		DB1D3F4623F42C2600BC725B /* StackUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F4523F42C2600BC725B /* StackUsersTests.swift */; };
@@ -17,6 +17,10 @@
 		DB1D3F6123F42E2100BC725B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F6023F42E2100BC725B /* NetworkManager.swift */; };
 		DB1D3F6323F4315600BC725B /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F6223F4315600BC725B /* ApiRequest.swift */; };
 		DB1D3F6523F43BFA00BC725B /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F6423F43BFA00BC725B /* UsersResponse.swift */; };
+		DB1D3F6723F450B100BC725B /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F6623F450B100BC725B /* UserListViewModel.swift */; };
+		DB1D3F6923F4517200BC725B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F6823F4517200BC725B /* UIViewExtensions.swift */; };
+		DB1D3F6D23F452F600BC725B /* AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F6C23F452F600BC725B /* AppBuilder.swift */; };
+		DBBD9F8C23F455CC004C233F /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBD9F8B23F455CC004C233F /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +44,7 @@
 		DB1D3F2B23F42C2500BC725B /* StackUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1D3F2E23F42C2500BC725B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB1D3F3023F42C2500BC725B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB1D3F3223F42C2500BC725B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB1D3F3223F42C2500BC725B /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		DB1D3F3723F42C2600BC725B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB1D3F3A23F42C2600BC725B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB1D3F3C23F42C2600BC725B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +57,10 @@
 		DB1D3F6023F42E2100BC725B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DB1D3F6223F4315600BC725B /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		DB1D3F6423F43BFA00BC725B /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
+		DB1D3F6623F450B100BC725B /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		DB1D3F6823F4517200BC725B /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		DB1D3F6C23F452F600BC725B /* AppBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBuilder.swift; sourceTree = "<group>"; };
+		DBBD9F8B23F455CC004C233F /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +111,11 @@
 		DB1D3F2D23F42C2500BC725B /* StackUsers */ = {
 			isa = PBXGroup;
 			children = (
+				DB1D3F6A23F4517A00BC725B /* Extensions */,
 				DB1D3F5F23F42D8700BC725B /* Network */,
 				DB1D3F5E23F42D4000BC725B /* Resources */,
-				DB1D3F3223F42C2500BC725B /* ViewController.swift */,
+				DB1D3F6C23F452F600BC725B /* AppBuilder.swift */,
+				DB1D3F6B23F452BF00BC725B /* UserList */,
 			);
 			path = StackUsers;
 			sourceTree = "<group>";
@@ -131,6 +141,7 @@
 		DB1D3F5E23F42D4000BC725B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DBBD9F8B23F455CC004C233F /* Box.swift */,
 				DB1D3F2E23F42C2500BC725B /* AppDelegate.swift */,
 				DB1D3F3023F42C2500BC725B /* SceneDelegate.swift */,
 				DB1D3F3723F42C2600BC725B /* Assets.xcassets */,
@@ -148,6 +159,23 @@
 				DB1D3F6423F43BFA00BC725B /* UsersResponse.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		DB1D3F6A23F4517A00BC725B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB1D3F6823F4517200BC725B /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DB1D3F6B23F452BF00BC725B /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				DB1D3F3223F42C2500BC725B /* UserListViewController.swift */,
+				DB1D3F6623F450B100BC725B /* UserListViewModel.swift */,
+			);
+			path = UserList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,11 +309,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB1D3F6123F42E2100BC725B /* NetworkManager.swift in Sources */,
-				DB1D3F3323F42C2500BC725B /* ViewController.swift in Sources */,
+				DB1D3F3323F42C2500BC725B /* UserListViewController.swift in Sources */,
+				DB1D3F6923F4517200BC725B /* UIViewExtensions.swift in Sources */,
+				DB1D3F6723F450B100BC725B /* UserListViewModel.swift in Sources */,
 				DB1D3F2F23F42C2500BC725B /* AppDelegate.swift in Sources */,
+				DB1D3F6D23F452F600BC725B /* AppBuilder.swift in Sources */,
 				DB1D3F6323F4315600BC725B /* ApiRequest.swift in Sources */,
 				DB1D3F3123F42C2500BC725B /* SceneDelegate.swift in Sources */,
 				DB1D3F6523F43BFA00BC725B /* UsersResponse.swift in Sources */,
+				DBBD9F8C23F455CC004C233F /* Box.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

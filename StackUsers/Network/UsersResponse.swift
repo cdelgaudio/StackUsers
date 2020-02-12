@@ -8,7 +8,7 @@
 
 // I used QuickType to generate the codable
 // MARK: - Users
-struct Users: Codable {
+struct UsersResponse: Codable {
     
     // MARK: - Item
     struct Item: Codable {

@@ -41,7 +41,7 @@ final class NetworkManager {
     @discardableResult
     func getUsers(
         numberOfUsers: Int,
-        completion: @escaping NetworkCompletion<Users>
+        completion: @escaping NetworkCompletion<UsersResponse>
     ) -> URLSessionDataTask? {
         guard let url = ApiRequest.users(number: numberOfUsers).url else {
             completion(.failure(.urlSerialization))
