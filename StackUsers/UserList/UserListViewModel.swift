@@ -13,10 +13,12 @@ class UserListViewModel {
     enum State {
         case loading
         case failure         // for demo reasons I'm not going to handle different kind of errors
-        case loaded(list: [UsersResponse.Item])
+        case loaded
     }
     
     let state: Box<State>
+    
+    private (set) var dataSource: [UsersResponse.Item]
     
     private let network: NetworkManager
     
@@ -25,6 +27,7 @@ class UserListViewModel {
     init(network: NetworkManager) {
         self.network = network
         state = .init(.failure)
+        dataSource = []
     }
     
     func start() {
@@ -36,7 +39,8 @@ class UserListViewModel {
         network.getUsers(numberOfUsers: numberOfUsers) { [weak self] result in
             switch result {
             case .success(let response):
-                self?.state.value = .loaded(list: response.items)
+                self?.dataSource = response.items
+                self?.state.value = .loaded
             case .failure:
                 self?.state.value = .failure
             }
