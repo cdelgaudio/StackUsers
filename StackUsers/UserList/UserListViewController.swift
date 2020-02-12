@@ -14,6 +14,8 @@ class UserListViewController: UIViewController {
     
     private let tableView: UITableView
     
+    private var currentAlert: UIAlertController = UIAlertController()
+    
     init(viewModel: UserListViewModel) {
         self.viewModel = viewModel
         self.tableView = UITableView()
@@ -39,7 +41,9 @@ class UserListViewController: UIViewController {
     private func configureBindings() {
         viewModel.state.bind { state in
             DispatchQueue.main.async { [weak self] in
-                self?.stateDidChange(state: state)
+                self?.currentAlert.dismiss(animated: false) {
+                    self?.stateDidChange(state: state)
+                }
             }
         }
     }
@@ -47,14 +51,25 @@ class UserListViewController: UIViewController {
     private func stateDidChange(state: UserListViewModel.State) {
         switch state {
         case .loading:
-            view.backgroundColor = .yellow
+            let alert = UIAlertController(title: "Loading...", message: nil, preferredStyle: .alert)
+            currentAlert = alert
+            present(alert, animated: true)
         case .failure:
-            view.backgroundColor = .red
+            let alert = UIAlertController(
+                title: "Error",
+                message: "Generic Error!",
+                preferredStyle: .alert
+            )
+            alert.addAction(.init(title: "Retry", style: .default) { [weak self] _ in
+                self?.viewModel.start()
+            })
+            currentAlert = alert
+            present(alert, animated: true)
         case .loaded:
-            view.backgroundColor = .white
             tableView.reloadData()
         }
     }
+
 }
 
 extension UserListViewController: UITableViewDataSource {
