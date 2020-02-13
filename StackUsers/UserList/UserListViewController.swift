@@ -28,22 +28,44 @@ class UserListViewController: UIViewController {
         super.viewDidLoad()
         configureBindings()
         configureTableView()
+        makeView()
         viewModel.start()
+    }
+    
+    private func makeView() {
+        view.backgroundColor = .darkWhite
+        let titleLabel = UILabel()
+        titleLabel.text = "Top 20"
+        titleLabel.font = titleLabel.font.withSize(50)
+        let mainStack = UIStackView(arrangedSubviews: [
+            .spacer(height: 40),
+            titleLabel,
+            tableView
+        ])
+        mainStack.axis = .vertical
+        let stack = UIStackView(arrangedSubviews: [
+            .spacer(widht: 10),
+            mainStack,
+            .spacer(widht: 10)
+        ])
+        stack.axis = .horizontal
+        view.addSubview(stack)
+        stack.autoPinToSuperview()
     }
     
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        view.addSubview(tableView)
-        tableView.autoPinToSuperview()
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = .clear
+        tableView.register(UserCellView.self, forCellReuseIdentifier: UserCellView.identifier)
     }
     
     private func configureBindings() {
-        viewModel.state.bind { state in
-            DispatchQueue.main.async { [weak self] in
-                self?.currentAlert.dismiss(animated: false) {
-                    self?.stateDidChange(state: state)
-                }
+        viewModel.state.bind { [weak self] state in
+            self?.currentAlert.dismiss(animated: false) {
+                self?.stateDidChange(state: state)
             }
         }
     }
@@ -55,6 +77,7 @@ class UserListViewController: UIViewController {
             currentAlert = alert
             present(alert, animated: true)
         case .failure:
+            // for demo reasons I'm not going to handle different kind of errors
             let alert = UIAlertController(
                 title: "Error",
                 message: "Generic Error!",
@@ -67,6 +90,9 @@ class UserListViewController: UIViewController {
             present(alert, animated: true)
         case .loaded:
             tableView.reloadData()
+        case .updated:
+            tableView.beginUpdates()
+            tableView.endUpdates()
         }
     }
 
@@ -78,12 +104,16 @@ extension UserListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = viewModel.dataSource[indexPath.row].displayName
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: UserCellView.identifier)
+        guard let userCell = cell as? UserCellView else { return UITableViewCell() }
+        userCell.configure(viewModel: viewModel.dataSource[indexPath.row])
+        return userCell
     }
 }
 
 extension UserListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelect(row: indexPath.row)
+    }
 }

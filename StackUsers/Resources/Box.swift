@@ -11,7 +11,10 @@ import Foundation
 class Box<T> {
     var value: T {
         didSet {
-            callBack?(value)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.callBack?(self.value)
+            }
         }
     }
     
