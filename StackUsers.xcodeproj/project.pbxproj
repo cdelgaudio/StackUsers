@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB07EB9323F6F03B003AE5BA /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07EB9023F6F033003AE5BA /* MockNetworkManager.swift */; };
-		DB07EB9423F6F03B003AE5BA /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07EB9023F6F033003AE5BA /* MockNetworkManager.swift */; };
+		DB07EB9723F6F11F003AE5BA /* UserListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07EB9623F6F11F003AE5BA /* UserListTest.swift */; };
+		DB07EB9823F6F1AF003AE5BA /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07EB9023F6F033003AE5BA /* MockNetworkManager.swift */; };
 		DB09AC5C23F5BDB00067DAF5 /* CellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09AC5B23F5BDB00067DAF5 /* CellButton.swift */; };
 		DB09AC5E23F6B6B20067DAF5 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09AC5D23F6B6B20067DAF5 /* ProfileImageView.swift */; };
 		DB1D3F2F23F42C2500BC725B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F2E23F42C2500BC725B /* AppDelegate.swift */; };
@@ -24,6 +24,7 @@
 		DB1D3F6723F450B100BC725B /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F6623F450B100BC725B /* UserListViewModel.swift */; };
 		DB1D3F6923F4517200BC725B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F6823F4517200BC725B /* Extensions.swift */; };
 		DB1D3F6D23F452F600BC725B /* AppBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F6C23F452F600BC725B /* AppBuilder.swift */; };
+		DB9BDBB723F6F72300A328B3 /* UserCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9BDBB623F6F72300A328B3 /* UserCellTest.swift */; };
 		DBBD9F8C23F455CC004C233F /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBD9F8B23F455CC004C233F /* Bindable.swift */; };
 		DBBD9F8F23F46843004C233F /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBD9F8E23F46843004C233F /* UserCellView.swift */; };
 		DBBD9F9123F46859004C233F /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBD9F9023F46859004C233F /* UserCellViewModel.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		DB07EB9023F6F033003AE5BA /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		DB07EB9623F6F11F003AE5BA /* UserListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTest.swift; sourceTree = "<group>"; };
 		DB09AC5B23F5BDB00067DAF5 /* CellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellButton.swift; sourceTree = "<group>"; };
 		DB09AC5D23F6B6B20067DAF5 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		DB1D3F2B23F42C2500BC725B /* StackUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 		DB1D3F6623F450B100BC725B /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		DB1D3F6823F4517200BC725B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DB1D3F6C23F452F600BC725B /* AppBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBuilder.swift; sourceTree = "<group>"; };
+		DB9BDBB623F6F72300A328B3 /* UserCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellTest.swift; sourceTree = "<group>"; };
 		DBBD9F8B23F455CC004C233F /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		DBBD9F8E23F46843004C233F /* UserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellView.swift; sourceTree = "<group>"; };
 		DBBD9F9023F46859004C233F /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				DB1D3F4523F42C2600BC725B /* StackUsersTests.swift */,
+				DB07EB9623F6F11F003AE5BA /* UserListTest.swift */,
+				DB9BDBB623F6F72300A328B3 /* UserCellTest.swift */,
 				DB1D3F4723F42C2600BC725B /* Info.plist */,
 			);
 			path = StackUsersTests;
@@ -357,6 +362,7 @@
 				DB1D3F2F23F42C2500BC725B /* AppDelegate.swift in Sources */,
 				DB1D3F6D23F452F600BC725B /* AppBuilder.swift in Sources */,
 				DB09AC5E23F6B6B20067DAF5 /* ProfileImageView.swift in Sources */,
+				DB07EB9823F6F1AF003AE5BA /* MockNetworkManager.swift in Sources */,
 				DB09AC5C23F5BDB00067DAF5 /* CellButton.swift in Sources */,
 				DB1D3F6323F4315600BC725B /* ApiRequest.swift in Sources */,
 				DB1D3F3123F42C2500BC725B /* SceneDelegate.swift in Sources */,
@@ -369,7 +375,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB07EB9323F6F03B003AE5BA /* MockNetworkManager.swift in Sources */,
+				DB07EB9723F6F11F003AE5BA /* UserListTest.swift in Sources */,
+				DB9BDBB723F6F72300A328B3 /* UserCellTest.swift in Sources */,
 				DB1D3F4623F42C2600BC725B /* StackUsersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +385,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB07EB9423F6F03B003AE5BA /* MockNetworkManager.swift in Sources */,
 				DB1D3F5123F42C2600BC725B /* StackUsersUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

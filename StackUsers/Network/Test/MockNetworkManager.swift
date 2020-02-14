@@ -12,8 +12,15 @@ class MockNetworkManager: Networkable {
     
     enum TestCase {
         case failure
+        case infiniteLoading
         case success
     }
+    
+    static let testUserResponse: UsersResponse = .init(
+    items: [.init(badgeCounts: nil, accountID: 1, isEmployee: nil, lastModifiedDate: nil, lastAccessDate: nil, reputationChangeYear: nil, reputationChangeQuarter: nil, reputationChangeMonth: nil, reputationChangeWeek: nil, reputationChangeDay: nil, reputation: 1, creationDate: nil, userType: nil, userID: 1, acceptRate: nil, location: nil, websiteURL: nil, link: nil, profileImage: "test", displayName: "Test")],
+    hasMore: false,
+    quotaMax: 0,
+    quotaRemaining: 0)
     
     private let test: TestCase
     
@@ -30,6 +37,8 @@ class MockNetworkManager: Networkable {
             completion(.success(#imageLiteral(resourceName: "rss").pngData()!))
         case .failure:
             completion(.failure(.network(description: "Test Error")))
+        case .infiniteLoading:
+            break
         }
         return nil
     }
@@ -40,17 +49,12 @@ class MockNetworkManager: Networkable {
     ) -> URLSessionDataTask? {
         switch test {
         case .success:
-            completion(.success(testUserResponse))
+            completion(.success(MockNetworkManager.testUserResponse))
         case .failure:
             completion(.failure(.network(description: "Test Error")))
+        case .infiniteLoading:
+            break
         }
         return nil
     }
-
-    
-    private let testUserResponse: UsersResponse = .init(
-        items: [.init(badgeCounts: nil, accountID: 1, isEmployee: nil, lastModifiedDate: nil, lastAccessDate: nil, reputationChangeYear: nil, reputationChangeQuarter: nil, reputationChangeMonth: nil, reputationChangeWeek: nil, reputationChangeDay: nil, reputation: 1, creationDate: nil, userType: nil, userID: 1, acceptRate: nil, location: nil, websiteURL: nil, link: nil, profileImage: "test", displayName: "Test")],
-        hasMore: false,
-        quotaMax: 0,
-        quotaRemaining: 0)
 }

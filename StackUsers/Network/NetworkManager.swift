@@ -15,11 +15,14 @@ enum NetworkError: Error {
 }
 
 protocol Networkable: class {
+    
+    @discardableResult
     func getImage(
         path: String,
         completion: @escaping NetworkCompletion<Data>
     ) -> URLSessionDownloadTask?
     
+    @discardableResult
     func getUsers(
         numberOfUsers: Int,
         completion: @escaping NetworkCompletion<UsersResponse>
@@ -40,7 +43,6 @@ final class NetworkManager: Networkable {
         session = URLSession.shared
     }
     
-    @discardableResult
     func getImage(
         path: String,
         completion: @escaping NetworkCompletion<Data>
@@ -54,7 +56,6 @@ final class NetworkManager: Networkable {
         return task
     }
     
-    @discardableResult
     func getUsers(
         numberOfUsers: Int,
         completion: @escaping NetworkCompletion<UsersResponse>

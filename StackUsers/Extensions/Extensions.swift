@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIView {
+    // just for demo reasons I decided to put all the extensions in a single file
     enum Anchor {
         case top, left, right, bottom, none
     }
