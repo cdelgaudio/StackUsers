@@ -20,4 +20,3 @@ I also tested the app with network link conditioner test the app in bad connecti
 
 Only unit tests was required so I avoided to make UITests. I tested only the business logic of the app, and I make a mock network to test it.
 
-
