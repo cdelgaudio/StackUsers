@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB07EB9323F6F03B003AE5BA /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07EB9023F6F033003AE5BA /* MockNetworkManager.swift */; };
+		DB07EB9423F6F03B003AE5BA /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB07EB9023F6F033003AE5BA /* MockNetworkManager.swift */; };
 		DB09AC5C23F5BDB00067DAF5 /* CellButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09AC5B23F5BDB00067DAF5 /* CellButton.swift */; };
 		DB09AC5E23F6B6B20067DAF5 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB09AC5D23F6B6B20067DAF5 /* ProfileImageView.swift */; };
 		DB1D3F2F23F42C2500BC725B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D3F2E23F42C2500BC725B /* AppDelegate.swift */; };
@@ -45,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB07EB9023F6F033003AE5BA /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		DB09AC5B23F5BDB00067DAF5 /* CellButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellButton.swift; sourceTree = "<group>"; };
 		DB09AC5D23F6B6B20067DAF5 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		DB1D3F2B23F42C2500BC725B /* StackUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB07EB9523F6F055003AE5BA /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				DB07EB9023F6F033003AE5BA /* MockNetworkManager.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		DB09AC5F23F6B6BF0067DAF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +183,7 @@
 		DB1D3F5F23F42D8700BC725B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DB07EB9523F6F055003AE5BA /* Test */,
 				DB1D3F6023F42E2100BC725B /* NetworkManager.swift */,
 				DB1D3F6223F4315600BC725B /* ApiRequest.swift */,
 				DB1D3F6423F43BFA00BC725B /* UsersResponse.swift */,
@@ -357,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB07EB9323F6F03B003AE5BA /* MockNetworkManager.swift in Sources */,
 				DB1D3F4623F42C2600BC725B /* StackUsersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB07EB9423F6F03B003AE5BA /* MockNetworkManager.swift in Sources */,
 				DB1D3F5123F42C2600BC725B /* StackUsersUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

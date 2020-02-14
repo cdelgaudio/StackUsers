@@ -25,11 +25,11 @@ class UserListViewModel {
     
     private (set) var dataSource: [UserCellViewModel]
     
-    private let network: NetworkManager
+    private let network: Networkable
     
     private let numberOfUsers: Int = 20
     
-    init(network: NetworkManager) {
+    init(network: Networkable) {
         self.network = network
         state = .init(.failure)
         dataSource = []

@@ -32,7 +32,7 @@ class UserCellViewModel {
     
     private let user: UsersResponse.Item
     
-    private let networkManager: NetworkManager
+    private let networkManager: Networkable
         
     private var currentTask: URLSessionDownloadTask?
     
@@ -41,7 +41,7 @@ class UserCellViewModel {
     init(
         _ user: UsersResponse.Item,
         delegate: UserListViewModelDelegate,
-        networkManager: NetworkManager)
+        networkManager: Networkable)
     {
         self.user = user
         self.networkManager = networkManager

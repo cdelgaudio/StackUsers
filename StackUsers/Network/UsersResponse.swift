@@ -12,18 +12,19 @@ struct UsersResponse: Codable {
     
     // MARK: - Item
     struct Item: Codable {
-        let badgeCounts: BadgeCounts
+        let badgeCounts: BadgeCounts?
         let accountID: Int
-        let isEmployee: Bool
-        let lastModifiedDate, lastAccessDate, reputationChangeYear, reputationChangeQuarter: Int
-        let reputationChangeMonth, reputationChangeWeek, reputationChangeDay, reputation: Int
-        let creationDate: Int
-        let userType: UserType
+        let isEmployee: Bool?
+        let lastModifiedDate, lastAccessDate, reputationChangeYear, reputationChangeQuarter: Int?
+        let reputationChangeMonth, reputationChangeWeek, reputationChangeDay: Int?
+        let reputation: Int
+        let creationDate: Int?
+        let userType: UserType?
         let userID: Int
         let acceptRate: Int?
         let location: String?
-        let websiteURL: String
-        let link: String
+        let websiteURL: String?
+        let link: String?
         let profileImage: String
         let displayName: String
 

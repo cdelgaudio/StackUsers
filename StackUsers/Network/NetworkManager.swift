@@ -14,10 +14,23 @@ enum NetworkError: Error {
     case urlSerialization
 }
 
+protocol Networkable: class {
+    func getImage(
+        path: String,
+        completion: @escaping NetworkCompletion<Data>
+    ) -> URLSessionDownloadTask?
+    
+    func getUsers(
+        numberOfUsers: Int,
+        completion: @escaping NetworkCompletion<UsersResponse>
+    ) -> URLSessionDataTask?
+    
+}
+
 typealias NetworkCompletion<T> = (Result<T, NetworkError>) -> Void
 
 
-final class NetworkManager {
+final class NetworkManager: Networkable {
     
     static let shared: NetworkManager = NetworkManager()
     
@@ -28,7 +41,10 @@ final class NetworkManager {
     }
     
     @discardableResult
-    func getImage(path: String, completion: @escaping NetworkCompletion<Data>) -> URLSessionDownloadTask? {
+    func getImage(
+        path: String,
+        completion: @escaping NetworkCompletion<Data>
+    ) -> URLSessionDownloadTask? {
         guard let url = URL(string: path) else {
             completion(.failure(.urlSerialization))
             return nil
