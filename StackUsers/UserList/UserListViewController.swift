@@ -38,8 +38,9 @@ class UserListViewController: UIViewController {
         titleLabel.text = "Top 20"
         titleLabel.font = titleLabel.font.withSize(50)
         let mainStack = UIStackView(arrangedSubviews: [
-            .spacer(height: 40),
+            .spacer(height: 45),
             titleLabel,
+            .spacer(height: 15),
             tableView
         ])
         mainStack.axis = .vertical

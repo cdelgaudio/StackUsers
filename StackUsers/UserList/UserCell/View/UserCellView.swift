@@ -12,7 +12,7 @@ class UserCellView: UITableViewCell {
 
     private let nameLabel: UILabel
     private let reputationLabel: UILabel
-    private let profileImageView: UIImageView
+    private let profileView: ProfileView
     private let blockedOverlay: UIView
     private let followButton: CellButton
     private let badgeimageView: UIImageView
@@ -26,7 +26,8 @@ class UserCellView: UITableViewCell {
         reputationLabel = UILabel()
         reputationLabel.font = reputationLabel.font.withSize(16)
         reputationLabel.textColor = .gray
-        profileImageView = UIImageView()
+        profileView = ProfileView()
+        profileView.autoPinDimensions(size: .init(width: 70, height: 70))
         detailStack = UIStackView()
         blockedOverlay = UIView()
         followButton = CellButton()
@@ -41,9 +42,11 @@ class UserCellView: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        profileImageView.backgroundColor = .clear
-        profileImageView.image = nil
         detailStack.isHidden = true
+        profileView.image = nil
+        profileView.stopLoading()
+        viewModel?.imageState.debind()
+        viewModel?.didDisappear()
     }
     
     func configure(viewModel: UserCellViewModel) {
@@ -66,19 +69,22 @@ class UserCellView: UITableViewCell {
         }
         userStateDidChange(state: viewModel.userState.value)
         
-        viewModel.start()
+        viewModel.didAppear()
     }
     
     // MARK: State
     
     private func imageStateDidChange(state: UserCellViewModel.ImageState) {
         switch state {
-        case .failure, .loading:
-            profileImageView.backgroundColor = .lightGray
-            profileImageView.image = nil
+        case .failure:
+            profileView.image = nil
+            profileView.stopLoading()
+        case .loading:
+            profileView.image = nil
+            profileView.startLoading()
         case .loaded(let image):
-            profileImageView.backgroundColor = .clear
-            profileImageView.image = image
+            profileView.image = image
+            profileView.stopLoading()
         }
     }
     
@@ -101,10 +107,6 @@ class UserCellView: UITableViewCell {
     
     private func makeView() {
         makeContainerStack()
-        
-        profileImageView.autoPinDimensions(size: .init(width: 70, height: 70))
-        profileImageView.clipsToBounds = true
-        profileImageView.layer.cornerRadius = 35
     }
     
     private func makeContainerStack() {
@@ -120,11 +122,11 @@ class UserCellView: UITableViewCell {
         containerView.addSubview(stack)
         stack.autoPinToSuperview()
         containerView.backgroundColor = .white
-        containerView.layer.cornerRadius = 20
+        containerView.layer.cornerRadius = 15
         let containerStack = UIStackView(arrangedSubviews: [
-            .spacer(height: 2.5),
+            .spacer(height: 4),
             containerView,
-            .spacer(height: 2.5)
+            .spacer(height: 4)
         ])
         containerStack.axis = .vertical
         contentView.addSubview(containerStack)
@@ -137,7 +139,7 @@ class UserCellView: UITableViewCell {
     
     private func makeMainStack() -> UIStackView {
         let textStack = UIStackView(arrangedSubviews: [
-            .spacer(height: 0),
+            .spacer(height: 5),
             nameLabel,
             reputationLabel,
             .flexibleSpacer()
@@ -146,7 +148,7 @@ class UserCellView: UITableViewCell {
         textStack.spacing = 10
         let imageStack = UIStackView(arrangedSubviews: [
             .spacer(height: 10),
-            profileImageView,
+            profileView,
             .spacer(height: 10),
             .flexibleSpacer()
         ])
@@ -160,7 +162,7 @@ class UserCellView: UITableViewCell {
             .spacer(widht: 10)
         ])
         mainStack.axis = .horizontal
-        mainStack.spacing = 10
+        mainStack.spacing = 15
         return mainStack
     }
     
@@ -181,7 +183,7 @@ class UserCellView: UITableViewCell {
         blockedOverlay.backgroundColor = .gray
         blockedOverlay.alpha = 0.5
         blockedOverlay.isHidden = true
-        blockedOverlay.layer.cornerRadius = 20
+        blockedOverlay.layer.cornerRadius = 15
     }
     
     private func makeDetailStack() -> UIStackView {

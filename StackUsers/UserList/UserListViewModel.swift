@@ -21,7 +21,7 @@ class UserListViewModel {
         case updated
     }
     
-    let state: Box<State>
+    let state: Bindable<State>
     
     private (set) var dataSource: [UserCellViewModel]
     

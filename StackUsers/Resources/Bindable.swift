@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Box<T> {
+class Bindable<T> {
     var value: T {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -26,5 +26,9 @@ class Box<T> {
     
     func bind(callBack: @escaping (T) -> Void) {
         self.callBack = callBack
+    }
+    
+    func debind() {
+        callBack = nil
     }
 }
