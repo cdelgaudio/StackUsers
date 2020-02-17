@@ -2,11 +2,11 @@
 
 This is a simple small project with just one screen that shows a list of top 20 StackOverflow users.
 
-If the server is unavailable a popup will appear and the user could press the retry button to try again the network call.
+If the server is unavailable a popup will appear and the user can press the retry button to try again the network call.
 
-The users can be followed and blocked but closing the app the settings will be lost because of for this challenge the persistence is not required (but could be a good “future implementation”).
+Since the persistence is not among the requirements, closing the app will make all the settings such as following or blocking lost. (but it can be a good “future implementation”).
 
-The download of the user image starts when the cell appear and is cancelled when the cell will disappear to avoid resource waste. 
+The download of the user image starts when the cell appears and it is cancelled when the cell disappears to avoid resource waste.
 
 I used MVVM without coordinators because it is just 1 screen.
 
